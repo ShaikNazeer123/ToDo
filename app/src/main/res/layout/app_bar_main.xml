@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.abhibus.intern.todo.todo.MainActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/d1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#249F93"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+<!--ContentMain-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/d1"
+        android:background="#F8F8F8">
+        <View
+            android:id="@+id/datetime"
+            android:layout_width="fill_parent"
+            android:layout_height="6dp">
+        </View>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical">
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/addTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:backgroundTint="#249F93"
+        android:src="@drawable/addicon"
+        app:useCompatPadding="true"/>
+
+    <!--BottomSheet-->
+</RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/bottomsheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="0dp"
+        app:elevation="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1"
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.999">
+            <LinearLayout
+                android:id="@+id/btm_scr"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.4"
+                android:background="@color/black"
+                android:orientation="horizontal"
+                >
+                </LinearLayout>
+                <DatePicker
+                    android:id="@+id/datepicker"
+                    android:layout_width="300dp"
+                    android:layout_height="400dp"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:visibility="gone">
+
+                </DatePicker>
+                <TimePicker
+                    android:id="@+id/timepicker"
+                    android:layout_width="300dp"
+                    android:layout_height="400dp"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:visibility="gone">
+
+                </TimePicker>
+                <DatePicker
+                    android:id="@+id/datepicker2"
+                    android:layout_width="300dp"
+                    android:layout_height="400dp"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:visibility="gone">
+
+                </DatePicker>
+                <TimePicker
+                    android:id="@+id/timepicker2"
+                    android:layout_width="300dp"
+                    android:layout_height="400dp"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:visibility="gone"/>
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.">
+                <LinearLayout
+                    android:id="@+id/header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/gray"
+                    android:padding="8dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Task Details"
+                        android:textSize="20sp"
+                        />
+                </LinearLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_below="@id/header"
+                    android:id="@+id/content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        android:id="@+id/task">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Task Name   "
+                            android:textStyle="bold"
+                            />
+                        <EditText
+                            android:id="@+id/task_name"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:hint="Task Name"
+                            android:textColorHint="@color/gray"
+                            android:textSize="15sp"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:clickable="true"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:layout_below="@id/task"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Start by  "
+                            android:textStyle="bold"
+                            android:layout_weight="0.25"/>
+                        <EditText
+                            android:id="@+id/start_time"
+                            android:layout_width="65dp"
+                            android:layout_height="wrap_content"
+                            android:hint=" 14:00"
+                            android:textColorHint="@color/gray"
+                            android:layout_weight="0.25"
+                            android:inputType="datetime"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:focusable="false"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="End by  "
+                            android:textStyle="bold"
+                            android:paddingLeft="35dp"
+                            android:layout_weight="0.25"
+
+                            />
+                        <EditText
+                            android:id="@+id/end_time"
+                            android:layout_width="65dp"
+                            android:layout_height="wrap_content"
+                            android:hint=" 18:00"
+                            android:textColorHint="@color/gray"
+                            android:layout_weight="0.25"
+                            android:inputType="datetime"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:focusable="false"
+                            android:clickable="true"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/time"
+                        android:orientation="horizontal"
+                        android:weightSum="1"
+                        android:layout_centerInParent="true">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Start Date  "
+                            android:textStyle="bold"
+                            />
+                        <EditText
+                            android:id="@+id/start_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="30-04-2017"
+                            android:textColorHint="@color/gray"
+                            android:inputType="date"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:focusable="false"
+
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="End Date  "
+                            android:paddingLeft="20dp"
+                            android:textStyle="bold"
+                            />
+                        <EditText
+                            android:id="@+id/end_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="30-04-2017"
+                            android:textColorHint="@color/gray"
+                            android:inputType="date"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:clickable="true"
+                            android:focusable="false"
+
+                            />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/content">
+                <LinearLayout
+
+                    android:id="@+id/bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/content"
+                    android:background="#249F93"
+                    android:gravity="center"
+                    android:clickable="true">
+
+                    <TextView
+                        android:id="@+id/submit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Save"
+                        android:textSize="20sp"
+                        android:clickable="true"
+                        android:textColor="@color/white"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/esubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/content"
+                    android:background="#249F93"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/esubmittext"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Update"
+                        android:textSize="20sp"
+                        android:clickable="true"
+                        android:textColor="@color/white"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+            </FrameLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+</android.support.design.widget.CoordinatorLayout>
