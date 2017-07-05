@@ -670,6 +670,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getData(3);
 //            adapter = new CustomAdapter(MainActivity.this, customListViewValues, getResources());
 //            list.setAdapter(adapter);
+            mAdapter.setData(customListViewValues);
 
         } else if (id == R.id.account) {
 
