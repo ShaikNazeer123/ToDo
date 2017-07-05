@@ -38,7 +38,7 @@
             android:id="@+id/addedon"
             android:layout_marginLeft="10dp"
             android:textColor="@color/gray"
-            android:layout_weight="0.3"
+            android:layout_weight="0.6"
             />
         <TextView
             android:id="@+id/det"
@@ -46,6 +46,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="@color/yellow"
+            android:gravity="end"
             android:layout_gravity="right|center"
             android:layout_weight="0.3"/>
     </LinearLayout>

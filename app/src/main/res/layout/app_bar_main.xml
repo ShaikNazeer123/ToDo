@@ -169,7 +169,7 @@
 
                     <LinearLayout
                         android:id="@+id/time"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
                         android:layout_below="@id/task"
@@ -216,7 +216,7 @@
                             android:clickable="true"/>
                     </LinearLayout>
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/time"
                         android:orientation="horizontal"
