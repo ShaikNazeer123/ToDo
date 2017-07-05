@@ -29,6 +29,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
@@ -92,6 +93,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //getSupportActionBar().setHomeButtonEnabled(true);
+        //getSupportActionBar().setHomeAsUpIndicator(R.drawable.actionbar);
         db = new DataBase(this);
         dl=new ListModel();
         getData(0);
@@ -122,7 +125,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final DatePicker dp = (DatePicker) findViewById(R.id.datepicker);
         final TimePicker tp2= (TimePicker) findViewById(R.id.timepicker2);
         final DatePicker dp2 = (DatePicker) findViewById(R.id.datepicker2);
-
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, mainLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mainLayout.setDrawerListener(toggle);
+        toggle.syncState();
 
         ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
             @Override
